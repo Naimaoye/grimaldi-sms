@@ -4,7 +4,6 @@ import { logger } from '../config/loggerConfig';
 const apiKey = ""
 export const sendToUser = async (url, msisdn, text) => {
     const headers = {
-        'Content-Type': 'application/json',
         'Authorization': `${apiKey}`
       }
     const data = {
