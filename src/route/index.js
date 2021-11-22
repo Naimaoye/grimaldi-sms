@@ -1,7 +1,8 @@
 import express from 'express';
-import Ussd from "../controller/ussd-send";
-const ussdRoute = express.Router();
+import Sms from "../controller/sms-send";
 
-ussdRoute.get('/proxy', Ussd.ussdSendLogic);
+const smsRoute = express.Router();
 
-export default ussdRoute;
+smsRoute.get('/proxy', Sms.smsSendLogic);
+
+export default smsRoute;

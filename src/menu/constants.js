@@ -2,18 +2,18 @@ export const WELCOME_MESSAGE = `Welcome.
 - For ETA/Rotation no REPLY with
 ETA BillOfLaden e.g ETA 21323GH
 - For Refunds REPLY with
-Refunds BillOfLaden
+Refunds BillOfLaden Email
 - For Waivers REPLY with
 Waiver BillOfLaden Email
 - For Parking Slot REPLY with
 Parking ChasisNO(Last 6 digits)
 `;
 
-export const WELCOME_MENU_INVALID = `Invalid command. 
+export const WELCOME_MESSAGE_INVALID = `Invalid command. 
 - For ETA/Rotation no REPLY with
 ETA BillOfLaden e.g ETA 21323GH
 - For Refunds REPLY with
-Refunds BillOfLaden
+Refunds BillOfLaden Email
 - For Waivers REPLY with
 Waiver BillOfLaden Email
 - For Parking Slot REPLY with
@@ -30,7 +30,7 @@ export const username = 'test';
 
 export const password = 'test';
 
-export const baseURL = 'http://10.0.0.68:13065/cgi-bin/sendsms';
+export const baseURL = 'https://mps.digitalpulseapi.com/1.0/send-sms/anq';
 
 export const ETA_Rotation_Request = 'https://billing.grimaldi-nigeria.com:1449/api/USSD/ETARotationNo';
 
