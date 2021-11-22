@@ -14,7 +14,7 @@ export default class Sms {
             console.log('query string', parseUrl);
             const keywordValue = await extractKeyword(parseUrl);
             const { msisdn } = parseUrl;
-            const { keyword } = parseUrl['keyword']
+            const { keyword } = parseUrl;
             const email = keyword.split(' ')[2];
             const bl = keyword.split(' ')[1];
             if(msisdn && whiteList.includes(msisdn)) {
