@@ -30,7 +30,7 @@ export const username = 'test';
 
 export const password = 'test';
 
-export const baseURL = 'https://mps.digitalpulseapi.com/1.0/send-sms/anq';
+export const baseURL = 'https://2way-sms.digitalpulseapi.com';
 
 export const ETA_Rotation_Request = 'https://billing.grimaldi-nigeria.com:1449/api/USSD/ETARotationNo';
 

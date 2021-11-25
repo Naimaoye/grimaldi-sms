@@ -1,19 +1,13 @@
 import axios from 'axios';
 import { logger } from '../config/loggerConfig';
 
-const apiKey = ""
-export const sendToUser = async (url, msisdn, text) => {
-    const headers = {
-        'Authorization': `${apiKey}`
-      }
+export const sendToUser = async (url, msisdn, text, messageId) => {
     const data = {
-        "sender": "55019",
-        "message": `${text}`,
-        "receiver": `${msisdn}`
+        "message-id": `${messageId}`,
+        "msisdn": `${msisdn}`,
+        "text": `${text}`
       }
-   await axios.post(url, data, {
-        headers: headers
-    }).then((response) => {
+   await axios.post(url, data).then((response) => {
         logger.debug('response from gateway', response);
     }).catch((error) => {
         logger.error('error', error);
@@ -22,8 +16,7 @@ export const sendToUser = async (url, msisdn, text) => {
 };
 
 
-export const extractKeyword = (parseUrl) => {
-    const keyword = parseUrl['keyword'];
-    const keywordValue = keyword.split(' ')[0]
+export const extractKeyword = (text) => {
+    const keywordValue = text.split(' ')[0]
     return keywordValue;
 }

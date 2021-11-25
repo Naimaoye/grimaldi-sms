@@ -10,16 +10,14 @@ export default class Sms {
 
     static async smsSendLogic(req, res) {
     try {
-            const parseUrl = req.query;
-            console.log('query string', parseUrl);
-            const keywordValue = await extractKeyword(parseUrl);
-            const { msisdn } = parseUrl;
-            const { keyword } = parseUrl;
-            const email = keyword.split(' ')[2];
-            const bl = keyword.split(' ')[1];
+            const messageId = req.body["message-id"]
+            const {text, msisdn} = req.body;
+            const keywordValue = await extractKeyword(text);
+            const email = text.split(' ')[2];
+            const bl = text.split(' ')[1];
             if(msisdn && whiteList.includes(msisdn)) {
                 /* ussd Logic */  
-                smsLogic(baseURL, msisdn, email, bl, keywordValue);
+                smsLogic(baseURL, msisdn, email, bl, keywordValue, messageId);
               } else {
                 logger.error('Incomplete query parameters received or phone number not whitelisted');
             }
