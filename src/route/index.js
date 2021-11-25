@@ -3,6 +3,6 @@ import Sms from "../controller/sms-send";
 
 const smsRoute = express.Router();
 
-smsRoute.get('/proxy', Sms.smsSendLogic);
+smsRoute.get('/grimaldi-sms', Sms.smsSendLogic);
 
 export default smsRoute;

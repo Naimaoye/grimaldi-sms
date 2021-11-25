@@ -5,7 +5,7 @@ import { logger } from './config/loggerConfig';
 
 const app = express();
 
-const PORT = 9840;
+const PORT = 9866;
 
 app.use(smsRoute);
 
