@@ -8,8 +8,10 @@ export const sendToUser = async (url, msisdn, text, messageId) => {
         "text": `${text}`
       }
    await axios.post(url, data).then((response) => {
+        console.log(response)
         logger.debug('response from gateway', response);
     }).catch((error) => {
+        console.log(error)
         logger.error('error', error);
     });
 

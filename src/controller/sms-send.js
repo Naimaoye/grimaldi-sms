@@ -9,6 +9,7 @@ import { whiteList, baseURL } from '../menu/constants';
 export default class Sms {
 
     static async smsSendLogic(req, res) {
+        console.log(req)
     try {
             const messageId = req.body["message-id"]
             const {text, msisdn} = req.body;
