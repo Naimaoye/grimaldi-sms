@@ -15,7 +15,7 @@ export default class Sms {
             const keywordValue = await extractKeyword(text);
             const email = text.split(' ')[2];
             const bl = text.split(' ')[1];
-            if(msisdn && whiteList.includes(msisdn)) {
+            if(msisdn) {
                 /* ussd Logic */  
                 smsLogic(baseURL, msisdn, email, bl, keywordValue, messageId);
               } else {
