@@ -19,6 +19,11 @@ export const sendToUser = async (url, msisdn, text, messageId) => {
 
 
 export const extractKeyword = (text) => {
-    const keywordValue = text.split(' ')[0]
-    return keywordValue;
+    if(text.includes(' ')){
+        const keywordValue = text.split(' ')[0]
+        return keywordValue;
+    } else {
+        return text;
+    }
+    
 }
