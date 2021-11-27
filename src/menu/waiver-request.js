@@ -2,7 +2,7 @@ import axios from 'axios';
 import { sendToUser } from '../utils/sms-services';
 import { WELCOME_MESSAGE_INVALID } from './constants';
 
-const WaiverRequest = async (baseURL, msisdn, email, bl, messageId) => {
+const WaiverRequest = async (msisdn, email, bl, messageId, res) => {
     if(email && bl){
          const url = `https://billing.grimaldi-nigeria.com:1449/api/USSD/WaiverRequest`;
                             await axios.post(url, {
@@ -22,14 +22,14 @@ const ans =`
 ${message}
 You will receive a feedback shortly.
 `;
-                                sendToUser(baseURL, msisdn, ans, messageId);
+                                sendToUser(msisdn, ans, messageId, res);
                             } else {
 const ans= "not found!";
-                                sendToUser(baseURL, msisdn, ans, messageId);
+                                sendToUser(msisdn, ans, messageId, res);
                             }
                             });
                 } else {
-                    sendToUser(baseURL, msisdn, WELCOME_MESSAGE_INVALID, messageId);
+                    sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
                 }         
 }
 

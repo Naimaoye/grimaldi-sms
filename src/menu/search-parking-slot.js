@@ -2,7 +2,7 @@ import axios from 'axios';
 import { sendToUser } from '../utils/sms-services';
 import { WELCOME_MESSAGE_INVALID } from './constants';
 
-const SearchParkingSlot = async (baseURL, msisdn, bl, messageId) => {
+const SearchParkingSlot = async (msisdn, bl, messageId, res) => {
     if(bl){
     const url1 = `https://billing.grimaldi-nigeria.com:1449/api/USSD/SearchParkingSlot?chassis=${bl}`;
                         await axios.get(url1, {
@@ -15,15 +15,15 @@ const SearchParkingSlot = async (baseURL, msisdn, bl, messageId) => {
                                     const ans = response.data['data'].slot;
 const newAns = `Your parking slot:
 ${ans}`;
-                                    sendToUser(baseURL, msisdn, newAns, messageId);
+                                    sendToUser(msisdn, newAns, messageId, res);
                                 } else {
                                     const ans = 'parking slot not found!';
-                                    sendToUser(baseURL, msisdn, ans, messageId);
+                                    sendToUser(msisdn, ans, messageId, res);
                                 }
     
                             });
                         } else {
-                            sendToUser(baseURL, msisdn, WELCOME_MESSAGE_INVALID, messageId);
+                            sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
                         }
 }
 

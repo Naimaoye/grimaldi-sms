@@ -15,7 +15,7 @@ export default class Sms {
 
             if(msisdn) {
                 /* ussd Logic */  
-                smsLogic(baseURL, msisdn, text, messageId);
+                smsLogic(msisdn, text, messageId, res);
               } else {
                 logger.error('Incomplete query parameters received or phone number not whitelisted');
             }

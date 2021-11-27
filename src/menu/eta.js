@@ -2,7 +2,7 @@ import axios from 'axios';
 import { sendToUser } from '../utils/sms-services';
 import { WELCOME_MESSAGE_INVALID } from './constants';
 
-const ETARotationNum = async (baseURL, msisdn, bl, messageId) => {
+const ETARotationNum = async (msisdn, bl, messageId, res) => {
 if(bl){
     const url = `https://billing.grimaldi-nigeria.com:1449/api/USSD/ETARotationNo?bl=${bl}`;
         await axios.get(url, {
@@ -19,18 +19,18 @@ const ETAValue =`
 Rotation Number: ${rotationNo}
 Expected Berthing Date: ${berthing}
 `;
-                            sendToUser(baseURL, msisdn, ETAValue, messageId);
+                            sendToUser(msisdn, ETAValue, messageId, res);
                                 } else {
                                     const notFound = "values not found";
-                                    sendToUser(baseURL, msisdn, notFound, messageId);
+                                    sendToUser(msisdn, notFound, messageId, res);
                                 }
                         } else {
                             const err = "unable to fetch, please try again later";
-                            sendToUser(baseURL, msisdn, err, messageId);
+                            sendToUser(msisdn, err, messageId, res);
                         }  
                         })
                     } else {
-                        sendToUser(baseURL, msisdn, WELCOME_MESSAGE_INVALID, messageId);
+                        sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
                     }               
 }
 

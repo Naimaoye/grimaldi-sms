@@ -3,7 +3,7 @@ import { sendToUser } from '../utils/sms-services';
 import { WELCOME_MESSAGE_INVALID } from './constants';
 
 
-const RefundRequest = async (baseURL, msisdn, email, bl, messageId) => {
+const RefundRequest = async (msisdn, email, bl, messageId, res) => {
     const url1 = `https://billing.grimaldi-nigeria.com:1449/api/USSD/RefundRequest`;
     if(email && bl){
         await axios.post(url1, {
@@ -24,15 +24,15 @@ ${message}
 You will receive a feedback shortly.
 `;
         
-            sendToUser(baseURL, msisdn, ans, messageId);
+            sendToUser(msisdn, ans, messageId, res);
         } else {
 const ans= "not found!";
 
-            sendToUser(baseURL, msisdn, ans, messageId);
+            sendToUser(msisdn, ans, messageId, res);
         }
         });
     } else {
-        sendToUser(baseURL, msisdn, WELCOME_MESSAGE_INVALID, messageId);
+        sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
     }
 }
 
