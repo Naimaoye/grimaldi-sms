@@ -4,6 +4,7 @@ import { WELCOME_MESSAGE_INVALID } from './constants';
 
 
 const RefundRequest = async (msisdn, email, bl, messageId, res) => {
+try{
     const url1 = `https://billing.grimaldi-nigeria.com:1449/api/USSD/RefundRequest`;
     if(email && bl){
         await axios.post(url1, {
@@ -16,7 +17,7 @@ const RefundRequest = async (msisdn, email, bl, messageId, res) => {
             "password": "paswUssd"
             }
         }).then(response =>{
-            console.log(response);
+            console.log('here',response);
         if(response.data.success == 'true'){
             const message =  response.data["message"];
 const ans =`
@@ -34,6 +35,12 @@ const ans= "not found!";
     } else {
         sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
     }
-}
 
+} catch(e){
+    console.log('err', e)
+const ans= "unable to process request, please try again";
+
+    sendToUser(msisdn, ans, messageId, res);
+}
+}
 export default RefundRequest;

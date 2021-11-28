@@ -3,6 +3,7 @@ import { sendToUser } from '../utils/sms-services';
 import { WELCOME_MESSAGE_INVALID } from './constants';
 
 const ETARotationNum = async (msisdn, bl, messageId, res) => {
+try{
 if(bl){
     const url = `https://billing.grimaldi-nigeria.com:1449/api/USSD/ETARotationNo?bl=${bl}`;
         await axios.get(url, {
@@ -31,7 +32,13 @@ Expected Berthing Date: ${berthing}
                         })
                     } else {
                         sendToUser(msisdn, WELCOME_MESSAGE_INVALID, messageId, res);
-                    }               
+                    }
+                } catch(e){
+                    console.log('err', e)
+const ans= "unable to process request, please try again";
+
+    sendToUser(msisdn, ans, messageId, res);
+                }            
 }
 
 export default ETARotationNum;

@@ -11,6 +11,7 @@ export const smsLogic = async (msisdn, text, messageId, res) => {
     const bl = text.split(' ')[1];
     const keywordValue = extractKeyword(text)
 switch(keywordValue) {
+    case 'Help':
     case 'HELP':
         WelcomeMessage(msisdn, messageId, res);
         break;
