@@ -1,29 +1,15 @@
-# README #
+# GRIMALDI SMS #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This project handles logistics for shipping and it helps check for packing slots
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* git clone
+* RUN npm install to install all packages
+* RUN npm start to start the project
 
 ### Contribution guidelines ###
 
 * Writing tests
 * Code review
 * Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
