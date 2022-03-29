@@ -1,6 +1,6 @@
 # GRIMALDI SMS #
 
-This project handles logistics for shipping and it helps check for packing slots
+This project is value-added-service that handles logistics for shipping and it helps check for packing slots through SMS. The API created interfaces with SMPT Gateway. 
 
 ### How do I get set up? ###
 
